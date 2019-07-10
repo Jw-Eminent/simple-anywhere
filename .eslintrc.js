@@ -3,20 +3,19 @@ module.exports = {
         "browser": true,
         "commonjs": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "mocha": true
     },
     "extends": "eslint:recommended",
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
+    "globals": {},
     "parserOptions": {
-        "ecmaVersion": 2018
+        "ecmaVersion": 2018,
+        "sourceType": "script"
     },
     "rules": {
         "no-console": ["error", { allow: ["info", "warn", "error"] }],
         "indent": ["error", 2],
         "quotes": ["error", "single"],
-        "array-callback-return": "error"
+        "eol-last": "error"
     }
 };

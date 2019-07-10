@@ -2,10 +2,15 @@
   "name": "simple-anywhere",
   "version": "1.0.0",
   "description": "Simple Static WebServer",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
-    "test": "npm test"
+    "lint": "eslint . || exit 0",
+    "fix": "eslint --fix . || exit 0"
   },
+  "pre-commit": [
+    "fix",
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jw-Eminent/simple-anywhere.git"
@@ -17,6 +22,8 @@
   },
   "homepage": "https://github.com/Jw-Eminent/simple-anywhere#readme",
   "devDependencies": {
-    "eslint": "^6.0.1"
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.0.1",
+    "pre-commit": "^1.2.2"
   }
 }
