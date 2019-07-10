@@ -1,0 +1,22 @@
+{
+  "name": "simple-anywhere",
+  "version": "1.0.0",
+  "description": "Simple Static WebServer",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jw-Eminent/simple-anywhere.git"
+  },
+  "author": "Jwwang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jw-Eminent/simple-anywhere/issues"
+  },
+  "homepage": "https://github.com/Jw-Eminent/simple-anywhere#readme",
+  "devDependencies": {
+    "eslint": "^6.0.1"
+  }
+}
