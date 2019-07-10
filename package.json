@@ -15,6 +15,10 @@
     "type": "git",
     "url": "git+https://github.com/Jw-Eminent/simple-anywhere.git"
   },
+  "keywords": [
+    "static",
+    "webserver"
+  ],
   "author": "Jwwang",
   "license": "ISC",
   "bugs": {
