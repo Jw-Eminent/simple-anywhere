@@ -1,0 +1,12 @@
+.list-container {
+  padding: 10px;
+}
+
+.file-path {
+  display: inline-block;
+}
+
+.file-path:hover {
+  font-size: 16px;
+  font-weight: 200;
+}
