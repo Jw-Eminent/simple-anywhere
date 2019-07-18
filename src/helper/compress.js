@@ -7,12 +7,15 @@ const {createGzip, createDeflate} = require('zlib');
 
 module.exports = (readStream, req, res) => {
   const accepetEncoding = req.headers['accept-encoding'];
-  if (!accepetEncoding || !accepetEncoding.match(/\b(gzip|deflate)\b/)) {
+  const regMatchGzipOrDeflate = /\b(gzip|deflate)\b/;
+  const regMathGzip = /\bgzip\b/;
+  const regMatchDeflate = /\bdefalate\b/;
+  if (!accepetEncoding || !regMatchGzipOrDeflate.test(accepetEncoding)) {
     return readStream;
-  } else if (accepetEncoding.match(/\bgzip\b/)) {
+  } else if (regMathGzip.test(accepetEncoding)) {
     res.setHeader('Content-Encoding', 'gzip');
     return readStream.pipe(createGzip());
-  } else if (accepetEncoding.match(/\bdefalate\b/)) {
+  } else if (regMatchDeflate.test(accepetEncoding)) {
     res.setHeader('Content-Encoding', 'deflate');
     return readStream.pipe(createDeflate());
   }
