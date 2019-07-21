@@ -11,6 +11,7 @@ const readdir = util.promisify(fs.readdir);
 const { root, compressReg } = require('../config/defaultConf');
 const mime = require('./mime');
 const compress = require('./compress');
+const isFresh = require('./cache');
 
 // 引入模板 通过模板引擎进行编译
 const tplPath = path.join(__dirname, '../template/filelist.html');
@@ -20,11 +21,19 @@ const template = Handlebars.compile(tplSource);
 module.exports = async function (request, response, currentPath) {
   try {
     const stats = await stat(currentPath);
-    response.statusCode = 200;
     if (stats.isFile()) {
       // 通过mime类型设置正确的contentType
       const contentType = mime(currentPath);
       response.setHeader('Content-Type', contentType);
+
+      // 判断请求的内容是否过期 是否需要重新获取
+      if (isFresh(stats, request, response)) {
+        response.statusCode = 304;
+        response.end();
+        return;
+      }
+      response.statusCode = 200;
+
       // 创建一个可读的文件流
       let readStream = fs.createReadStream(currentPath);
 
