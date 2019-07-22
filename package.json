@@ -1,8 +1,11 @@
 {
   "name": "simple-anywhere",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Simple Static WebServer",
-  "main": "build/index.js",
+  "main": "src/app.js",
+  "bin": {
+    "sim-anywhere": "bin/sim-anywhere"
+  },
   "scripts": {
     "lint": "eslint . || exit 0",
     "fix": "eslint --fix . || exit 0"
@@ -31,6 +34,7 @@
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
-    "handlebars": "^4.1.2"
+    "handlebars": "^4.1.2",
+    "yargs": "^13.3.0"
   }
 }

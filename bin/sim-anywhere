@@ -1,0 +1,7 @@
+#! /usr/bin/env node
+
+require('../src/index');
+
+
+// 创建完成后 命令行执行 chmod +x bin/sim-anywhere 给予执行权限
+// bin/sim-anywhere -p 9999  执行该命令可启动

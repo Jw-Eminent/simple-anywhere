@@ -8,7 +8,7 @@ const fs = require('fs');
 const Handlebars = require('handlebars');
 const stat = util.promisify(fs.stat);
 const readdir = util.promisify(fs.readdir);
-const { root, compressReg } = require('../config/defaultConf');
+const { compressReg } = require('../config/defaultConf');
 const mime = require('./mime');
 const compress = require('./compress');
 const isFresh = require('./cache');
@@ -18,7 +18,7 @@ const tplPath = path.join(__dirname, '../template/filelist.html');
 const tplSource = fs.readFileSync(tplPath, 'utf-8');
 const template = Handlebars.compile(tplSource);
 
-module.exports = async function (request, response, currentPath) {
+module.exports = async function (request, response, currentPath, root) {
   try {
     const stats = await stat(currentPath);
     if (stats.isFile()) {
