@@ -5,7 +5,7 @@ Simple NodeJS Static Web Server
 ## install
 
 ```
-npm i -g sim-anywhere
+npm i -g simple-anywhere
 ```
 
 ## method of application
